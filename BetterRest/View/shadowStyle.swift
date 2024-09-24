@@ -11,9 +11,9 @@ import SwiftUI
 struct ShadowStyle {
     
     static let elevation1 = ShadowStyle(
-        color1: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.12), radius1: 1,
-        color2: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.08), radius2: 6,
-        color3: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.04), radius3: 12
+        color1: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.08), radius1: 1,
+        color2: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.06), radius2: 6,
+        color3: Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.02), radius3: 8
     )
     
     // Add more here
