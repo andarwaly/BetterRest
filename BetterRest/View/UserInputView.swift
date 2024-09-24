@@ -20,7 +20,7 @@ struct UserInputView: View {
 
         }
         .frame(maxWidth: .infinity)
-        .padding(20)
+        .padding(16)
         .background(Color.white)
         .cornerRadius(12)
         .shadow(.elevation1)

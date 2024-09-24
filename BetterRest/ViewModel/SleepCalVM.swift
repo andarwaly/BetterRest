@@ -31,8 +31,16 @@ class SleepCalVM: ObservableObject {
         return Calendar.current.date(from: components) ?? .now
     }
     
+    // DateFormatter with WIB Timezone
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.timeZone = TimeZone(identifier: "Asia/Jakarta") // Use Jakarta timezone (WIB)
+        formatter.dateFormat = "hh.mm 'WIB'" // Example: 8:00 AM WIB
+        return formatter
+    }()
+    
     func calculateBedtime() {
-        
         do {
             let config = MLModelConfiguration()
             let model = try SleepCalculator(configuration: config)
@@ -46,13 +54,12 @@ class SleepCalVM: ObservableObject {
             
             let sleepTime = wakeUpTime - prediction.actualSleep
             
-            recommendationMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            // Format time with WIB timezone
+            recommendationMessage = dateFormatter.string(from: sleepTime)
             
             alertTitle = "Your bedtime is"
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
-            
+            alertMessage = dateFormatter.string(from: sleepTime)
         } catch {
-            // if something went wrong
             alertTitle = "Error"
             alertMessage = "Sorry, there was a problem calculating your bedtime."
             showAlert = true

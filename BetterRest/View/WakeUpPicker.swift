@@ -17,7 +17,7 @@ struct WakeUpPicker: View {
                 Text("Wake up time")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Select your desired wake up time")
+                Text("Your desired wake up time")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

@@ -11,28 +11,28 @@ struct RecommendationCard: View {
     @Binding var recommendationMessage: String
     
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
+        HStack(alignment: .center, spacing: 6) {
             VStack(alignment: .leading) {
                 Text("Sleep Time")
                     .font(.headline.weight(.medium))
                     .foregroundStyle(.primary)
-                Text("Your suggested time to sleep")
+                Text("Suggested time to sleep")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
             Spacer()
             Text(recommendationMessage)
-                .font(.title.weight(.semibold))
                 .foregroundStyle(.blue)
+                .font(.system(size:24, weight: .semibold))
         }
         .frame(maxWidth: .infinity)
         .padding(16)
         .background(Color.white)
-        .cornerRadius(16)
+        .cornerRadius(12)
         .shadow(.elevation1)
     }
 }
 
 #Preview {
-    RecommendationCard(recommendationMessage: .constant("12.00 AM"))
+    RecommendationCard(recommendationMessage: .constant("12.00 WIB"))
 }
